@@ -2,22 +2,33 @@
 #include "esp_err.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+#include "driver/i2c_master.h"
 
 #include "esp_lcd_io_i2c.h"
-#include "driver/i2c_master.h"
-// #include "lvgl/lvgl"
+#include "esp_lcd_panel_vendor.h"
+#include "esp_lcd_panel_ssd1306.h"
+#include "esp_lcd_panel_io.h"
+#include "esp_lcd_panel_ops.h"
 
+#include "esp_lvgl_port.h"
+#include "lvgl.h"
 
+/// @brief Most members must be set, except for `master_bus_handle`
 typedef struct Display_config{
+    gpio_num_t io_scl;          //!Must be set before use                
+    gpio_num_t io_sda;          //!Must be set before use    
+    i2c_port_num_t port_num;    //!Must be set before use            
+    uint32_t dev_addr;          //!Must be set before use             
+    uint8_t height_res;         //!Must be set before use             
+    uint8_t width_res;          //!Must be set before use             
     i2c_master_bus_handle_t master_bus_handle;
-    gpio_num_t io_scl;
-    gpio_num_t io_sda;
-    i2c_port_num_t port_num;
-    uint32_t dev_addr;
 }Display_config;
 
 typedef struct Display_t{
-    // lv_obj *disp;
+    lv_disp_t *disp;
 }Display_t;
 
 typedef Display_t *disp_handle;
