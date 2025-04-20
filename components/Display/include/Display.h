@@ -1,4 +1,5 @@
 #pragma once
+#include <sys/lock.h>
 #include "esp_err.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
@@ -9,12 +10,15 @@
 
 #include "esp_lcd_io_i2c.h"
 #include "esp_lcd_panel_vendor.h"
-#include "esp_lcd_panel_ssd1306.h"
+// #include "esp_lcd_panel_ssd1306.h"
+#include "esp_lcd_sh1107.h"
 #include "esp_lcd_panel_io.h"
 #include "esp_lcd_panel_ops.h"
 
 #include "esp_lvgl_port.h"
 #include "lvgl.h"
+
+#define EXAMPLE_LVGL_PALETTE_SIZE      8
 
 /// @brief Most members must be set, except for `master_bus_handle`
 typedef struct Display_config{
