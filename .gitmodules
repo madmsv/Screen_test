@@ -1,0 +1,3 @@
+[submodule "sh1106_driver"]
+	path = sh1106-esp-idf
+	url = https://github.com/TNY-Robotics/sh1106-esp-idf.git
