@@ -12,6 +12,9 @@ void app_main(void)
         .port_num = 1,
     };
     disp_handle display = init_display(&disp_cfg);
+    esp_err_t err;
+    err = add_lable(display, "Hello Espressif, Hello LVGL.");
+    // err = add_menu(display, "Main");
 
     while(1){
 
