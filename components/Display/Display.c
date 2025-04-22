@@ -72,14 +72,14 @@ disp_handle init_display(Display_config *cfg)
         .monochrome = true,
         .rotation = {
             .swap_xy = false,
-            .mirror_x = true,
-            .mirror_y = true,
+            .mirror_x = false,
+            .mirror_y = false,
         }
     };
 
     ESP_LOGI(TAG_SETUP, "Creating display handle");
     lv_disp_t *new_disp = lvgl_port_add_disp(&disp_cfg);
-    lv_disp_set_rotation(new_disp, LV_DISP_ROT_NONE); //LV_DISP_ROT_NONE
+    lv_disp_set_rotation(new_disp, LV_DISP_ROT_180); //LV_DISP_ROT_NONE
     disp_handle handle = (disp_handle)malloc(sizeof(Display_t));
     handle->disp = new_disp;
     ESP_LOGI(TAG_SETUP, "Done with setup");
