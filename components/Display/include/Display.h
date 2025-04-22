@@ -38,3 +38,5 @@ typedef struct Display_t{
 typedef Display_t *disp_handle;
 
 disp_handle init_display(Display_config *cfg);
+
+esp_err_t add_lable(disp_handle disp, char * txt);
