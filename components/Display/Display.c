@@ -45,7 +45,10 @@ disp_handle init_display(Display_config *cfg)
         .reset_gpio_num = -1,
     };
 
-    ESP_ERROR_CHECK(esp_lcd_new_panel_sh1106(io_handle, &panel_config, &panel_handle));
+    if (CONFIG_LCD_CONTROLLER_SH1106){
+        ESP_LOGI(TAG_SETUP, "Creating handle for sh1106");
+        ESP_ERROR_CHECK(esp_lcd_new_panel_sh1106(io_handle, &panel_config, &panel_handle));
+    }
     // ESP_ERROR_CHECK(panel_sh1106_mirror(&panel_handle, true, false));
     
     ESP_LOGI(TAG_SETUP, "Doing a round of \"reset\", \"init\" and \"turn on\" for the display");

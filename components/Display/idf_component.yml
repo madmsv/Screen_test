@@ -2,3 +2,4 @@ dependencies:
   lvgl/lvgl: "^8"
   # "tny-robotics/sh1106-esp-idf": "^1.0.0"
   esp_lvgl_port: "^1"
+  espressif/esp_lcd_sh1107: ==1.0.0

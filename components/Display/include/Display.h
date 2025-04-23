@@ -9,9 +9,13 @@
 #include "driver/i2c_master.h"
 
 #include "esp_lcd_io_i2c.h"
-// #include "esp_lcd_panel_vendor.h"
+
+static bool CONFIG_LCD_CONTROLLER_SH1106 = true;
+static bool CONFIG_LCD_CONTROLLER_SH1107 = false;
+#include "esp_lcd_sh1107.h"
 #include "esp_lcd_panel_sh1106.h"
-// #include "esp_lcd_sh1107.h"
+#include "esp_lcd_panel_vendor.h"
+
 #include "esp_lcd_panel_io.h"
 #include "esp_lcd_panel_ops.h"
 
