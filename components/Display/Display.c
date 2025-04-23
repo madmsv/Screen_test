@@ -49,7 +49,13 @@ disp_handle init_display(Display_config *cfg)
         ESP_LOGI(TAG_SETUP, "Creating handle for sh1106");
         ESP_ERROR_CHECK(esp_lcd_new_panel_sh1106(io_handle, &panel_config, &panel_handle));
     }
-    // ESP_ERROR_CHECK(panel_sh1106_mirror(&panel_handle, true, false));
+    else if (CONFIG_LCD_CONTROLLER_SH1107)
+    {
+        ESP_ERROR_CHECK(esp_lcd_new_panel_sh1107(io_handle, &panel_config, &panel_handle));
+    }
+    else{
+        return NULL;
+    }
     
     ESP_LOGI(TAG_SETUP, "Doing a round of \"reset\", \"init\" and \"turn on\" for the display");
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
