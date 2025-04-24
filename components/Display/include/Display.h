@@ -37,12 +37,12 @@ typedef struct Display_config{
 
 typedef struct Display_t{
     lv_disp_t *disp;
-    lv_obj_t lbl;
+    lv_obj_t *lbl;
 }Display_t;
 
 typedef Display_t *disp_handle;
 
 disp_handle init_display(Display_config *cfg);
 
-esp_err_t add_lable(disp_handle disp, char * txt);
+esp_err_t add_label(disp_handle disp, char * txt);
 esp_err_t add_menu(disp_handle display, char *name);
