@@ -1,3 +1,6 @@
 [submodule "sh1106-esp-idf"]
 	path = sh1106-esp-idf
 	url = https://github.com/Zizii2/sh1106-esp-idf.git
+[submodule "parkeringsensor"]
+	path = parkeringsensor
+	url = https://github.com/Babydoku/parkeringsensor.git

@@ -95,9 +95,15 @@ disp_handle init_display(Display_config *cfg)
     return handle;
 }
 
-esp_err_t add_lable(disp_handle display, char * txt){
+esp_err_t add_label(disp_handle display, char * txt){
     lv_obj_t *scr = lv_disp_get_scr_act(display->disp);
-    lv_obj_t *label = lv_label_create(scr);
+    lv_obj_t *label;
+    if(display->lbl == NULL){
+        label = lv_label_create(scr);
+    }
+    else{
+        label = display->lbl;
+    }
     lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /* Circular scroll */
     lv_label_set_text(label, txt); //"Hello Espressif, Hello LVGL."
     /* Size of the screen (if you use rotation 90 or 270, please use lv_display_get_vertical_resolution) */
