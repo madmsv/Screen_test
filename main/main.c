@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Display.h"
+#include "ultrasonic.h"
 
 void app_main(void)
 {
@@ -13,6 +14,14 @@ void app_main(void)
     };
     disp_handle display = init_display(&disp_cfg);
     esp_err_t err;
+
+    ultrasonic_config_t sonic_cfg = {
+        .echo_pin = GPIO_NUM_15,
+        .trig_pin = GPIO_NUM_21,
+    };
+    
+    ultrasonic_init(&sonic_cfg);
+
     err = add_lable(display, "Hello Espressif, Hello LVGL.");
     // err = add_menu(display, "Main");
 

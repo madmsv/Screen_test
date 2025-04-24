@@ -1,2 +1,2 @@
-idf_component_register(SRCS "main.c"
-                    INCLUDE_DIRS ".")
+idf_component_register(SRCS "main.c" "../parkeringsensor/ultrasonic/ultrasonic.c"
+                    INCLUDE_DIRS "." "../parkeringsensor/ultrasonic/include")

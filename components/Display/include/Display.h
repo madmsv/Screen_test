@@ -37,6 +37,7 @@ typedef struct Display_config{
 
 typedef struct Display_t{
     lv_disp_t *disp;
+    lv_obj_t lbl;
 }Display_t;
 
 typedef Display_t *disp_handle;
