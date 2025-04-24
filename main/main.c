@@ -7,9 +7,9 @@ void app_main(void)
         .dev_addr = 0x3C, //0x3C
         .height_res = 64,
         .width_res = 128,
-        .io_scl = GPIO_NUM_12,
-        .io_sda = GPIO_NUM_11,
-        .port_num = 1,
+        .io_scl = GPIO_NUM_6,
+        .io_sda = GPIO_NUM_7,
+        .port_num = 1, // ändra port num fär esp32c6 till 0
     };
     disp_handle display = init_display(&disp_cfg);
     esp_err_t err;
