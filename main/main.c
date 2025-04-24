@@ -22,7 +22,7 @@ void app_main(void)
     
     ultrasonic_init(&sonic_cfg);
 
-    err = add_lable(display, "Hello Espressif, Hello LVGL.");
+    err = add_labelk(display, "Hello Espressif, Hello LVGL.");
     // err = add_menu(display, "Main");
 
     while(1){
